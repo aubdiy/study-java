@@ -1,0 +1,9 @@
+{
+  "i" : 123,
+  "b" : true,
+  "s" : "【my】",
+  "date" : "2012-12-24",
+  "subEmun" : "SE1",
+  "subA" : {"name" : "subA name"},
+  "subBs" : [{"name" : "subB name1"},{"name" : "subB name2"}]
+}

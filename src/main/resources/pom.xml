@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>self.aub.jdbc</groupId>
+	<artifactId>WebJDBC</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>WebJdbc</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.2.2.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	
+	
+	<build>
+		<resources>  
+            <resource>  
+                <directory>${project.basedir}/src/main/resources</directory>
+                <excludes>
+					<exclude>db.properties</exclude>
+				</excludes>  
+            </resource>
+            <resource>  
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering> 
+                <includes>
+          			<include>db-linux.properties</include>
+        		</includes> 
+            </resource>
+        </resources>
+  </build>
+  
+  <profiles>  
+        <profile>  
+            <id>test1</id>  
+            <activation>  
+                <property>  
+                    <name>env</name>  
+                    <value>dev1</value>  
+                </property>  
+            </activation>  
+            <properties>  
+                <JDBC_DRIVER>db1</JDBC_DRIVER>  
+            </properties>  
+        </profile>  
+    </profiles>
+</project>
